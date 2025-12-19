@@ -1,4 +1,5 @@
 import React from "react";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function RegistrationTable() {
   const [rows, setRows] = React.useState([]);
@@ -27,7 +28,7 @@ export default function RegistrationTable() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/forms");
+      const res = await fetch(`${API_URL}/api/forms`);
       if (!res.ok) throw new Error("Failed to load data");
 
       const data = await res.json();
