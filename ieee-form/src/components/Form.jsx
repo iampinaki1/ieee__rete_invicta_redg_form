@@ -18,7 +18,7 @@ export default function IEEEForm() {
     e.preventDefault();
     setStatus("loading");
     try {
-      const res = await fetch(`${API_URL}/api/forms`, {
+      const res = await fetch(`https://ieee-rete-invicta-redg-form.onrender.com/api/forms`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),

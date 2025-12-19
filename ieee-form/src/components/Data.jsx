@@ -28,7 +28,7 @@ export default function RegistrationTable() {
     }
 
     try {
-      const res = await fetch(`${API_URL}/api/forms`);
+      const res = await fetch(`https://ieee-rete-invicta-redg-form.onrender.com/api/forms`);
       if (!res.ok) throw new Error("Failed to load data");
 
       const data = await res.json();
@@ -49,7 +49,7 @@ export default function RegistrationTable() {
     setRows(prev => prev.filter(r => (r._id || r.id) !== id));
 
     try {
-      const res = await fetch(`/api/forms/${id}`, { method: "DELETE" });
+      const res = await fetch(`https://ieee-rete-invicta-redg-form.onrender.com/api/forms/${id}`, { method: "DELETE" });
       if (!res.ok) {
         // restore backup on failure
         setRows(backup);
