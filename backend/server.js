@@ -4,12 +4,17 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
 
-dotenv.config({ path: path.join(__dirname, '.env', '.env') });
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const Form = require('./models/Form');
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
